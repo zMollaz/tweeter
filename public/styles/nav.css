@@ -6,7 +6,7 @@ nav {
   color: #FFFFFF;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  position: relative;
 }
 
 nav span {
@@ -21,7 +21,11 @@ i {
   color: red;
 }
 
-#logo {
+.username h2 {
+  font-weight: 400;
+}
+
+#tweeterLogo {
   display: flex;
   margin: 1.5em;
   font-family: 'Bungee', cursive;
