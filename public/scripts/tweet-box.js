@@ -15,7 +15,9 @@ $(document).ready(function () {
   const bottonOnHover = function () {
     $(this).css({'color': '#e8b200'})
   }
-
-  $('.tweet-box').hover(borderOnHover, borderReg);
-  $('.tweet-box-botton').hover(bottonOnHover, bottonReg);
+  setTimeout(() => {
+    $('.tweet-box').hover(borderOnHover, borderReg);
+    $('.tweet-box-botton').hover(bottonOnHover, bottonReg);
+  }, 500);
+  
 });
