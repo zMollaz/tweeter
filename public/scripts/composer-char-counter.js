@@ -1,4 +1,5 @@
-$(document).ready(function () {
+$(document).ready(() => {
+
   $('#tweet-text').on('input', function (event) {
     const value = $(this).val();
     const counter = $(this).siblings().find('output');

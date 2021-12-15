@@ -7,7 +7,8 @@
   justify-content: space-between;
   align-items: center;
   border: 4px solid #545149;
-  margin: 3%;
+  margin-top: 20px;
+  padding: 15px;
 }
 
 .tweet-box article {
@@ -34,7 +35,7 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-#tweet-name {
+.tweet-name {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -42,12 +43,12 @@
   width: 160px;
 }
 
-#tweet-prefix {
+.tweet-prefix {
   font-weight:bold;
   color: #cad6f6;
 }
 
-#tweet-body {
+.tweet-body {
   display: flex;
   width: 100%;
   flex-grow: 4;
