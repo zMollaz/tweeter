@@ -11,7 +11,11 @@ form {
   align-items: flex-start;
   justify-content: space-around;
   width: 100%;
+}
 
+form label {
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 #tweet-text {
@@ -22,6 +26,10 @@ form {
   color: #545149;
   border-style: none;
   border-bottom: 4px solid #545149;
+}
+
+#tweet-text:focus {
+  outline-width: 0;
 }
 
 #tweet-footer {
@@ -37,6 +45,10 @@ form {
   font-size: medium ;
   background-color: #4056A1;
   color: #FFFFFF;
+}
+
+#tweetButton:hover {
+  outline: #cad6f6 auto 100px;
 }
 
 .counter {

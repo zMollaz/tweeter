@@ -28,26 +28,40 @@ $(document).ready(() => {
   };
 
   const renderTweets = function(tweets) {
+    $('#tweet-container').empty();
+    $('#tweet-text').val('');
+    $('.counter').text('140');
     for (const tweet of tweets) {
       const $extract = createTweetElement(tweet);
-      $('#tweet-container').append($extract);
+      $('#tweet-container').prepend($extract);
     }
   };
 
   $('#new-tweet-form').submit(function(event) {
     event.preventDefault();
     const serializedData = $(this).serialize();
-    
-    $.post('/tweets', serializedData, () => {
-    })
+    if (serializedData.length === 5) {
+      alert('New tweet field can not be empty !!');
+    }
+    if (serializedData.length > 145) {
+      alert('New tweet is over the allowed 140 character limit !!');
+    }
+    else {
+      $.post('/tweets', serializedData, () => {
+      console.log(serializedData)
+  
+  
+        loadTweets()
+      })
+    }
   })
   
   const loadTweets = function () {
-    $.get('/tweets', function(tweets) {
+    $.getJSON('/tweets', function(tweets) {
       renderTweets(tweets);
     })
-  };
-  
+  }
+
   loadTweets();
 })
 

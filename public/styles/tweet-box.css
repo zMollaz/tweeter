@@ -11,6 +11,10 @@
   padding: 15px;
 }
 
+.tweet-box:hover {
+  box-shadow: 10px 10px #cad6f6;
+}
+
 .tweet-box article {
   display:flex;
   flex-direction: column;
@@ -60,6 +64,7 @@
   border-bottom: 4px solid #545149;
   font-weight: 600;
   margin: 0;
+  overflow-wrap: break-word;
 }
 
 .tweet-foot {
@@ -78,6 +83,10 @@
 
 .tweet-foot span .fas {
   color: #4056A1;
+}
+
+.tweet-foot span .fas:hover {
+  color: #e8b200;
 }
 
 .footer-fas {
