@@ -30,10 +30,10 @@ $(document).ready(() => {
           </span>
         </footer>
       </article> `)
-      return $tweet;
+    return $tweet;
   };
 
-  const renderTweets = function(tweets) {
+  const renderTweets = function (tweets) {
     $('#tweet-container').empty();
     $('#tweet-text').val('');
     $('.counter').text('140');
@@ -43,27 +43,37 @@ $(document).ready(() => {
     }
   };
 
-  $('#new-tweet-form').submit(function(event) {
+  $('#new-tweet-form').submit(function (event) {
     event.preventDefault();
     const serializedData = $(this).serialize();
     if (serializedData.length === 5) {
-      alert('New tweet field can not be empty !!');
+      $.get('/', () => {
+        $('.error-box').slideDown(100, function () {
+          $('.error-message').text('New tweet field can not be empty')
+
+        })
+      })
     }
+
     if (serializedData.length > 145) {
-      alert('New tweet is over the allowed 140 character limit !!');
+      $.get('/', () => {
+        $('.error-box').slideDown(100, function () {
+          $('.error-message').text('New tweet is over the allowed 140 character limit')
+
+        })
+      })
     }
+
     else {
+      $('.error-box').slideUp(100);
       $.post('/tweets', serializedData, () => {
-      console.log(serializedData)
-  
-  
         loadTweets()
       })
     }
   })
-  
+
   const loadTweets = function () {
-    $.getJSON('/tweets', function(tweets) {
+    $.getJSON('/tweets', function (tweets) {
       renderTweets(tweets);
     })
   }
