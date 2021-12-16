@@ -6,17 +6,23 @@
 
 $(document).ready(() => {
 
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const createTweetElement = function (tweet) {
     const $time = timeago.format(tweet.created_at);
     const $tweet = $(`
       <article class="tweet-box">
         <header class="tweet-head">
-          <span class="tweet-name"><img src=${tweet.user.avatars}>${tweet.user.name}</span>
-          <span class="tweet-prefix">${tweet.user.handle}</span>
+          <span class="tweet-name"><img src=${escape(tweet.user.avatars)}>${escape(tweet.user.name)}</span>
+          <span class="tweet-prefix">${escape(tweet.user.handle)}</span>
         </header>
-        <p class="tweet-body">${tweet.content.text}</p>
+        <p class="tweet-body">${escape(tweet.content.text)}</p>
         <footer class="tweet-foot">
-          <span class="footer-text">${$time}</span>
+          <span class="footer-text">${escape($time)}</span>
           <span class="footer-fas">
             <i class="fas fa-flag tweet-box-botton"></i>
             <i class="fas fa-retweet tweet-box-botton"></i>
