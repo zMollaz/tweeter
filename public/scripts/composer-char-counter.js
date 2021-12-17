@@ -1,6 +1,6 @@
 $(document).ready(() => {
 
-  $('#tweet-text').on('input', function (event) {
+  $('#tweet-text').on('input', function () {
     const value = $(this).val();
     const counter = $(this).siblings().find('output');
     let count = 140 - value.length;

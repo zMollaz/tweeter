@@ -54,8 +54,6 @@ main {
   }
 
   .nav-bar {
-    position: relative;
-    width: 100%;
     background-color:#e8b200;
     background-image: url("https://www.transparenttextures.com/patterns/light-wool.png");
   }
@@ -73,11 +71,6 @@ main {
     column-gap: 5em;
     padding: 1.5em;
     margin-top:5em;
-  }
-
-  .nav-bar {
-    position:absolute;
-    top: 0;
   }
 
   .main-header {

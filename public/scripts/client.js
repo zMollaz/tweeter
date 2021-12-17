@@ -1,9 +1,3 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 $(document).ready(() => {
 
   const escape = function (str) {
@@ -13,6 +7,7 @@ $(document).ready(() => {
   };
 
   const createTweetElement = function (tweet) {
+
     const $time = timeago.format(tweet.created_at);
     const $tweet = $(`
       <article class="tweet-box">
@@ -46,6 +41,7 @@ $(document).ready(() => {
   $('#new-tweet-form').submit(function (event) {
     event.preventDefault();
     const serializedData = $(this).serialize();
+    
     if (serializedData.length === 5) {
       $.get('/', () => {
         $('.error-box').slideDown(100, function () {
@@ -58,7 +54,7 @@ $(document).ready(() => {
     if (serializedData.length > 145) {
       $.get('/', () => {
         $('.error-box').slideDown(100, function () {
-          $('.error-message').text('New tweet is over the allowed 140 character limit')
+          $('.error-message').text('New tweet is too long')
 
         })
       })
@@ -80,4 +76,3 @@ $(document).ready(() => {
 
   loadTweets();
 })
-
