@@ -35,3 +35,6 @@ i {
   font-size: x-large;
 }
 
+.tweet-compose-button:active {
+  color: #e8b200;
+}
