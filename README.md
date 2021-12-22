@@ -20,7 +20,6 @@ Tweeter is a simple, single-page Twitter clone.
 
 ## Dependencies
 
-- Express
 - Node 5.10.x or above
 - Body-parser: 1.15.2
 - Chance: 1.0.2
