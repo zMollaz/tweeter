@@ -1,12 +1,12 @@
 $(document).ready(() => {
 
-  const escape = function (str) {
+  const escape = function (str) {  // Prevents cross-site scripting
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
-  const createTweetElement = function (tweet) {
+  const createTweetElement = function (tweet) { //Creates html elements for the new tweet  and uses timeago library to display time lapsed
 
     const $time = timeago.format(tweet.created_at);
     const $tweet = $(`
@@ -28,8 +28,8 @@ $(document).ready(() => {
     return $tweet;
   };
 
-  const renderTweets = function (tweets) {
-    $('#tweet-container').empty();
+  const renderTweets = function (tweets) {  // Fetches tweets from database, creates html elements for them through (createTweetElement)
+    $('#tweet-container').empty();         // and displays most recent first, resets the textarea and counter
     $('#tweet-text').val('');
     $('.counter').text('140');
     for (const tweet of tweets) {
@@ -38,8 +38,8 @@ $(document).ready(() => {
     }
   };
 
-  $('#new-tweet-form').submit(function (event) {
-    event.preventDefault();
+  $('#new-tweet-form').submit(function (event) { // Validates chars limit, displays error message when appropriate 
+    event.preventDefault();                      //and makes Ajax requests to display new tweet with out refreshing
     const serializedData = $(this).serialize();
     const text = $('#tweet-text').val();
     if (text.length === 0) {
@@ -66,7 +66,7 @@ $(document).ready(() => {
     }
   })
 
-  const loadTweets = function () {
+  const loadTweets = function () {  // Calls renderTWeets func to fetch tweets from the database and displays them with an Ajax get request
     $.getJSON('/tweets', function (tweets) {
       renderTweets(tweets);
     })
