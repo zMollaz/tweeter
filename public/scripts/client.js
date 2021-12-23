@@ -41,21 +41,19 @@ $(document).ready(() => {
   $('#new-tweet-form').submit(function (event) {
     event.preventDefault();
     const serializedData = $(this).serialize();
-    
-    if (serializedData.length === 5) {
+    const text = $('#tweet-text').val();
+    if (text.length === 0) {
       $.get('/', () => {
         $('.error-box').slideDown(100, function () {
           $('.error-message').text('New tweet field can not be empty')
-
         })
       })
     }
 
-    if (serializedData.length > 145) {
+    if (text.length > 140) {
       $.get('/', () => {
         $('.error-box').slideDown(100, function () {
           $('.error-message').text('New tweet is too long')
-
         })
       })
     }
